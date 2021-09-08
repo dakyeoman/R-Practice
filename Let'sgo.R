@@ -150,5 +150,83 @@ dim(m3)
 #cat("\n",i) ## "/n" = enter, "/t" = tab
 #for문을 쓸 때는 항상 cat을 써야 함.에러 위치 알기 쉽고, 
 
+#While
+i <-1
+while(i<100){
+  if(i >50){
+    break;
+  }
+  print(i)
+  i<-i+1
+}
+
+#for < while 사용 빈도 
+#i : 1~10까지 : for
+#while은 변수가 정해져 있지 않은 (조건만 있는) 반복 작업에서 활용
+#j < 0.00001
+
+i<-100
+while(i>0.01){
+  i <- i -runif(1, min=-0.001, max=0.01)
+  cat("\n",i)
+}
+
+m <- matrix(1:15, ncol=3, byrow = T)
+m2 <- data.frame(m)
+colnames(m2)<-paste0("v", 1:3)
+m2
+
+
+getwd() #wd:working directory
+setwd("/Users/adrua/Desktop/R-Practice")
+getwd()
+
+rownames(m2) #행으로 인식됨 -> 불러들일 때 첫째 열 삭제or저장 시 rownames 삭제
+write.csv(m2,"m2.csv", row.names = F) #delete rownames. always
+aaa<-read.csv("m2.csv")
+aaa
+dim(aaa)
+
+save(m2, file = "m2.RData")
+load("m2.RData")
+m2
+
+#csv는 엑셀:매트릭스나 데이터프레임의 형태로만 저장됨(깨질 수도 있음)
+#RData: 빠름!벡터, 데이터프레임, 매트릭스, 기타등등 저장-그 형태 그대로 가져올 수 있다. 
+
+
+#---------------------
+#LIST객체
+
+lista<-list() 
+lista
+lista[[1]]<-m2
+lista
+
+lista[[2]]<-c(1,2,3)
+lista[[3]]<-c("a","b","c")
+
+lista
+#vector, dataframe, matrix - 작은방/list >>큰 [[]]방:형태 무관&작은 방[]
+#각각의 큰 방과 작은 방에 접근 가능.
+lista[[1]][2,]
+
+aa<-lista[[1]]
+aa[1,]
+
+save(lista,file="lista.RData")
+load("lista.RData")
+lista
+
+#행렬의 문자열 -> for 문 이용해서 숫자로 변환하기 
+m<-matrix(1:15, ncol=3, byrow = T)
+m[ ,1]<-as.character(m[ ,1])
+m<-data.frame(m)
+str(m)
+
+for(i in 1:ncol(m)){
+  m[,i]<-as.numeric(m[,i])
+}
+str(m)
 
 

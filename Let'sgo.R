@@ -229,4 +229,42 @@ for(i in 1:ncol(m)){
 }
 str(m)
 
+#----plot------
+plot(rnorm(100)) 
+hist(rnorm(100)) #histogram
+#r plot -> ggplot(google plot)데이터시각화 활용가능
+plot(1)
 
+plot(m)
+cor(m) #cordination matrix ???
+
+data<-cbind(rnorm(100), rnorm(100), rnorm(100))
+data 
+cor(data)
+plot(data.frame(data))
+#변수들간의 산점도로 데이터간 관계 확인 가능. 
+ts.plot(data, col=c('red', 'blue', 'black'))
+
+
+data2<-data.frame(data)
+head(data2)
+
+fit<-lm(X1~., data=data2) #lm: 회귀분석 함수
+
+sse<-sum((fit$residuals)^2) 
+#sum of squares error SSE: 회귀모델의 오차
+#회귀모델에서 (좋든 나쁘든)변수가 많을 수록 오차가 줄어든다.
+
+for(i in 1:30){
+
+  data2<-cbind(data2, rnorm(100))
+  colnames(data2)<-paste0("X", 1:ncol(data2))
+  fit<-lm(X1~., data=data2)
+
+sse<-c(sse,sum((fit$residuals)^2))
+ts.plot(sse) 
+Sys.sleep(0.1)
+}
+
+
+ 

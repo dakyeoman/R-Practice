@@ -39,3 +39,5 @@ mydata <- read.csv("https://www.theissaclee.com/ko/courses/rstat101/examscore.cs
 #read.csv("adress", header = TRUE 열 이름 정보 불러오기
 mydata
 head(mydata) #mydata의 6개 열만 보여줘
+
+

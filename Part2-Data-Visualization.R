@@ -52,6 +52,15 @@ boxplot(mydata$midterm,
         mydata$final, 
         main = "Distribution of Midterm Result",
         xlab = "Score",
+        ylab = "Exam Type",
+        names = c("Midterm", "Final"),
         horizontal = T)
+
+#Scatter plot(산점도) -----------------------------
+plot(mydata$midterm, mydata$final, 
+        main = "Scatter of Exam Result",
+        xlab = "Midterm",
+        ylab = "Final",
+        asp = 1) #asp: x/y축 scale 1:1로 조정(필)
 
 

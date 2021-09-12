@@ -34,7 +34,36 @@ x <- sample(1:10, 6) #1~10까지의 벡터 중 랜덤하게 6개 선택
 x 
 
 #Practice: x의 분산 구하기
-x_bar <- mean(x)
+
+var(x) #R에서 분산을 구하는 함수
+sd(x) #표준편차를 구하는 함수
+
+#(아래는 표준편차 계산 과정)
+x_bar <- mean(x) 
+my_var <- sum((x - x_bar)^2) / 5 #(n-1)
+my_var #분산
+sqrt(var(x)) #표준편차
+
+
+#2
+x <- rep(5, 10)
+y <- c(1:10)
+z <- c(3, 4, 5, 6, 7, 4, 5, 6, 5, 5)
+
+hist(x, breaks = 0:10)
+sd(x)
+
+hist(y, breaks = 0:10)
+sd(y)
+
+hist(z, breaks = 0:10)
+sd(z) 
+
+#이때 sd(y) > sd(z) *x축이 중요함
+
+
+
+
 
 
 

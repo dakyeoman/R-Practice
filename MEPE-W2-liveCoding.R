@@ -33,3 +33,4 @@ plot(hwang$Goals, hwang$Rating)
 cor(hwang$Goals, hwang$Rating)
 #데이터를 선택해서 분석 가능해야 하며, 결과가 타당한지 다시 생각해야. 
 
+

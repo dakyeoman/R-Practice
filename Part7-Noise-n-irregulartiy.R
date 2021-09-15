@@ -42,10 +42,10 @@ noise_fuc2 <- function(x){
   return(result)
 }
 
-#points(5, noise_fuc2(4), pch = 19)
-#points(9, noise_fuc2(9), pch = 19)
-#x <- 5:15
-#points(x, noise_fuc2(x), pch = 19)
+points(5, noise_fuc2(4), pch = 19)
+points(9, noise_fuc2(9), pch = 19)
+x <- 5:15
+points(x, noise_fuc2(x), pch = 19)
 
 #Randomly generator 0(.0000) ~ 0.9999
 #소숫점 6자리까지 시간 노티.
@@ -79,3 +79,38 @@ points(a, noise_fuc2(a))
 runif(10) * 5 + 5 # 5~10의 랜덤값 10개 생성
 runif(10) * 4 + 15 # 15~19의 랜덤값 10개 생성
 
+noise_fuc3 <- function(x){
+  true_vec <- x * 3 + 20
+  noise_vec <- runif(length(x)) * 10 - 5
+  
+  result <- true_vec + noise_vec
+  return(result)
+}
+
+range_vec <- 1:20
+plot(range_vec, true_fuc(range_vec), 
+     type = "l", lty = 3)
+
+points(4, noise_fuc3(4), pch = 19)
+points(5, noise_fuc3(4), pch = 19)
+
+x <- 5:15
+points(x, noise_fuc3(x), pch = 19)
+
+#runif(1) * 10 - 5 
+
+# -----------------------------
+#(노이즈모델링의 정수는 정규분포)
+#runif():균일분포(unif)에서 r(random-number)을 뽑아줘
+#0~1 숫자가 나올 가능성 같음
+true_fuc <- function(x){
+  result <- x * 3 + 20
+  return(result)
+}
+
+x <- c(2, 6, 3, 7, 4, 6, 5, 1, 9, 8, 10)
+r_noise <- runif(11) * 10 - 5 #-5:5, 11 random values
+
+y <- true_fuc(x) + r_noise
+plot(x, y, pch = 19, ylimi = c(10, 55))
+abline(20, 3, lty = 2)

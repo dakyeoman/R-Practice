@@ -44,9 +44,9 @@ RSS <- function(par){
         slope <- par[2]
         y_i_hat <- c(2, 4, 6, 8) * slope + intercept #기울기, 절편 
         y_i <- c(1, 6, 4, 8)
-        RSS <- sum((y_i - y_ i_hat)^2)
-        return(RSS)
-}
+        RSS <- sum((y_i - y_i_hat)^2)
+        return(RSS)}
+
 RSS(c(2, 0.5))
 RSS(c(2, 0.6))
 RSS(c(1.2, 0.6))
@@ -72,3 +72,31 @@ persp3d(rss,
         zlim = c(6, 15),
         n = 100) #100개 점을 사용해서 그려줘
  
+#function lm(); linear model. 회귀분석은 linear model 중 하나. 
+
+
+#lm(회귀식/모델식, 데이터)
+#lm(final = slope * mid * intercept + noise,
+#       data = mydata) : lm에서는 slope, intercept, noise 생략
+
+result <- lm(formula = final ~ midterm, data = mydata)
+        #final 값을 midterm 값으로 예측하고 싶어
+summary(result)
+
+mydata<-read.csv("https://www.theissaclee.com/ko/courses/rstat101/examscore.csv", header = TRUE)
+plot(mydata$midterm, mydata$final, asp = 1, 
+     xlab = "Midterm", 
+     ylab = "Final", 
+     main = "Result plot")
+abline(result$coefficients) 
+result$coefficients #in coefficient ->> intercept, slope
+hist(result$residuals) #residual : 각 점과 직선 거리 
+summary(result$residuals) 
+
+mycoefficients <- as.numeric(result$coefficients)
+#final(what i wanna know) = slope * midterm + intercept     
+mycoefficients[2] * 40 + mycoefficients[1]
+
+     
+     
+     

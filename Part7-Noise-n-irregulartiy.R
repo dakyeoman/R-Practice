@@ -114,3 +114,9 @@ r_noise <- runif(11) * 10 - 5 #-5:5, 11 random values
 y <- true_fuc(x) + r_noise
 plot(x, y, pch = 19, ylimi = c(10, 55))
 abline(20, 3, lty = 2)
+
+
+
+
+
+

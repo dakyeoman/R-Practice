@@ -57,4 +57,9 @@ sum(mysample > 1 & mysample < 3+2) / 1000 #68%
 sum(mysample > 3-2*2 & mysample < 3+2*2) / 1000 #95%
 sum(mysample > 3-2*3 & mysample < 3+2*3) / 1000 #99.7
 
-#oh... noo....
+#Standardization(N(0, 1)) of Normal distribution
+#: N(μ, σ²) >>> ( x - μ ) / σ 
+
+
+
+ 

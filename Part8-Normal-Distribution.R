@@ -60,6 +60,25 @@ sum(mysample > 3-2*3 & mysample < 3+2*3) / 1000 #99.7
 #Standardization(N(0, 1)) of Normal distribution
 #: N(μ, σ²) >>> ( x - μ ) / σ 
 
+#pnorm()
+#pnorm(q, mean = 0, sd = 1, 
+#     lower.tail = TRUE, log.p = FALSE)
+#lower.tail; q값보다 작은 범위를 구함
+#log.p TRUE이면 p값의 로그값을 구함(쓸모 있을 때가 있음)
 
+#P(X ≤ 3.12) = ? 
+pnorm(3.12, mean = 3, sd = 2, 
+      lower.tail = TRUE, log.p = FALSE)
 
- 
+#P(X ≥ 3.12) = ? 
+pnorm(3.12, mean = 3, sd = 2, 
+      lower.tail = FALSE, log.p = FALSE)
+
+x <- 75 * pnorm(12, mean = 10, sd = 2, 
+      lower.tail = TRUE, log.p = FALSE)
+
+#qnorm()
+#qnorm(p:확률값, mean = 0, sd = 1, 
+#      lower.tail = TRUE)
+
+qnorm(0.92, mean = 10, sd = 2)

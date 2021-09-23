@@ -108,3 +108,4 @@ mytable <- table(mydata$SU)
 pie(mytable, 
     labels = names(mytable), 
     main = "Pie Chart of the S/U")
+

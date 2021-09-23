@@ -23,3 +23,4 @@ points(mysample_age, mysample_weight, pch = 16, col = "green")
 result <- lm(mysample_weight ~ mysample_age) #(종속변수 ~ 독립변수)
 abline(result, col = "green")
 
+

@@ -19,6 +19,7 @@ abline(10, 3, col = "black")
 mysample_age <- sample(seq(2, 10, by = 1/12), 5, replace = TRUE)
 mysample_weight <- true_func(mysample_age) + rnorm(length(mysample_age)) * 3
 points(mysample_age, mysample_weight, pch = 16, col = "green")
+
 #주어진 데이터를 사용한 회귀 직선 계산: lm()
 result <- lm(mysample_weight ~ mysample_age) #(종속변수 ~ 독립변수)
 abline(result, col = "green")
